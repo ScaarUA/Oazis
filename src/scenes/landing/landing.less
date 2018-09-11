@@ -1,0 +1,176 @@
+@import 'colors.less';
+@import 'mixins.less';
+
+.landing-header {
+  .with-limited-width();
+
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .phone-link {
+    color: #ffffff;
+    font-size: 18px;
+
+    .fa-utensils {
+      padding: 0 5px;
+    }
+  }
+}
+
+.landing-section {
+  height: 100vh;
+}
+
+.landing-primary-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/sky.jpg');
+  background-color: @primary-color;
+
+  .primary-block-title {
+    font-size: 48px;
+    text-align: center;
+    text-shadow: 3px 2px @primary-light-color;
+    animation: fadein 1s;
+  }
+
+  .address-info {
+    color: @text-color;
+    font-size: 18px;
+    animation: fadein 1s;
+  }
+
+  .main-description {
+    .with-limited-width();
+
+    text-align: center;
+  }
+}
+
+.landing-secondary-block {
+  background-image: url('/assets/sand.jpg');
+  background-color: @secondary-color;
+
+  &:before {
+    content: ' ';
+    display: block;
+    border: 1px solid rgba(#ffffff, 0.3);
+  }
+
+  .landing-secondary-wrapper {
+    .with-limited-width();
+
+    display: flex;
+    height: 100%;
+    padding: 40px 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.landing-footer {
+  height: 400px;
+
+  &:before {
+    content: ' ';
+    display: block;
+    border: 1px solid rgba(#fff, 0.3);
+    box-shadow: 0 0 7px 1px @text-color;
+  }
+}
+
+@keyframes fadein {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.landing-panel {
+  height: 100%;
+  flex: 1;
+  margin: 0 15px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+  .landing-panel-title {
+    text-align: center;
+  }
+}
+
+.gallery {
+  @scrollBarLength: 18px;
+  @listHeight: 70px;
+
+  height: 100%;
+
+  .gallery-active-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - @listHeight - @scrollBarLength);
+    padding-bottom: 10px;
+
+    .gallery-active-image {
+      max-height: 100%;
+      max-width: 100%;
+      transform: rotateY(0);
+      transition: transform 0.5s;
+
+      &.animation {
+        transform: rotateY(90deg);
+        transition: transform 0.5s;
+      }
+    }
+
+    @keyframes showImage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  .gallery-image-list {
+    height: @listHeight + @scrollBarLength;
+    padding-bottom: @scrollBarLength;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .image-list-item {
+      height: @listHeight;
+      margin: 0 5px;
+      cursor: pointer;
+      opacity: 0.7;
+
+      &:hover, &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
