@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const glob = require('glob');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 
 module.exports = {
 	mode: 'development',
@@ -41,7 +44,21 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new ImageminPlugin({
+			externalImages: {
+				context: '',
+				sources: glob.sync('assets/**/*.*')
+			},
+			pngquant: {
+				quality: 8
+			},
+			plugins: [
+				imageminJpegRecompress({
+					quality: 'medium'
+				})
+			]
+		})
 	],
 	resolve: {
 		extensions: ['*', '.js', '.jsx'],
