@@ -8,3 +8,4 @@ deploy:
   provider: gae
   keyfile: service-account.json
   project: affable-audio-118621
+  docker_build: remote
