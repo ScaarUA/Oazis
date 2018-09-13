@@ -9,3 +9,4 @@ deploy:
   keyfile: service-account.json
   project: affable-audio-118621
   docker_build: remote
+  version: oazis-vm
