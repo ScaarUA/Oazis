@@ -9,6 +9,7 @@ deploy:
   project: affable-audio-118621
   default: true
 before_install:
+- openssl aes-256-cbc -K $encrypted_6b111cce5bfe_key -iv $encrypted_6b111cce5bfe_iv
+  -in service-account.json.enc -out service-account.json -d
 - openssl aes-256-cbc -K $encrypted_15f05a1f8aaa_key -iv $encrypted_15f05a1f8aaa_iv
-  -in service-account.json.enc -out service-account.json
-  -d
+  -in service-account.json.enc -out service-account.json -d
