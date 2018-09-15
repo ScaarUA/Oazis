@@ -5,7 +5,7 @@
   "author": "Bohdan Huseinov <bohdan_huseinov@epam.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run build:fe && yarn run run:server --port 80",
+    "start": "yarn run build:fe && yarn run run:server",
     "dev:fe": "webpack-dev-server",
     "dev:server": "nodemon ./server/index.js",
     "build:fe": "webpack",
