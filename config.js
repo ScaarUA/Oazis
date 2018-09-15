@@ -9,5 +9,5 @@ module.exports = {
 		frontEnd: path.resolve(root, 'dist'),
 		assets: path.resolve(root, 'assets')
 	},
-	serverPort: argv.port || 3000
+	serverPort: argv.port || process.env.PORT || 8080
 };
