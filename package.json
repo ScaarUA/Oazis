@@ -5,10 +5,11 @@
   "author": "Bohdan Huseinov <bohdan_huseinov@epam.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
-    "start:server": "nodemon ./server/index.js",
-    "build": "webpack",
-    "server": "node ./server/index.js"
+    "start": "yarn run build:fe && yarn run run:server --host 0.0.0.0 --port 80",
+    "dev:fe": "webpack-dev-server",
+    "dev:server": "nodemon ./server/index.js",
+    "build:fe": "webpack",
+    "run:server": "node ./server/index.js"
   },
   "babel": {
     "presets": [
