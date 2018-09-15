@@ -50,5 +50,8 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7",
     "yarn": "^1.9.4"
+  },
+  "engines": {
+    "yarn": ">=1.0.0 <2.0.0"
   }
 }
