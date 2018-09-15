@@ -5,7 +5,7 @@
   "author": "Bohdan Huseinov <bohdan_huseinov@epam.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build:fe && npm run run:server",
+    "start": "npm run run:server",
     "dev:fe": "webpack-dev-server",
     "dev:server": "nodemon ./server/index.js",
     "build:fe": "webpack",
