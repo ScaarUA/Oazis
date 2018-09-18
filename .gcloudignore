@@ -1,8 +1,9 @@
 .gcloudignore
 .git
 .gitignore
-.travis.yaml
+.travis.yml
 service-account.json.enc
-webpac.config.js
+service-account.json
+webpack.config.js
 src/
 node_modules/
