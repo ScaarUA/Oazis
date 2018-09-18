@@ -1,5 +1,8 @@
 language: node_js
 node_js: node
+before_install:
+  - openssl aes-256-cbc -K $encrypted_6b111cce5bfe_key -iv $encrypted_6b111cce5bfe_iv
+  -in service-account.json.enc -out service-account.json -d
 install:
 - npm install
 script: npm run build:fe
@@ -9,6 +12,3 @@ deploy:
   project: affable-audio-118621
   default: true
   skip_cleanup: true
-before_install:
-- openssl aes-256-cbc -K $encrypted_6b111cce5bfe_key -iv $encrypted_6b111cce5bfe_iv
-  -in service-account.json.enc -out service-account.json -d
