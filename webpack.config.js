@@ -4,10 +4,24 @@ const path = require('path');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const glob = require('glob');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
-	mode: 'development',
-	entry: './src/index.jsx',
+module.exports = (env) => ({
+	mode: env.mode || 'development',
+	entry: {
+		bundle: './src/index.jsx'
+	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					chunks: 'all'
+				}
+			}
+		}
+	},
 	module: {
 		rules: [
 			{
@@ -41,6 +55,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
@@ -58,7 +73,7 @@ module.exports = {
 					quality: 'medium'
 				})
 			]
-		})
+		}),
 	],
 	resolve: {
 		extensions: ['*', '.js', '.jsx'],
@@ -71,10 +86,10 @@ module.exports = {
 	output: {
 		path: __dirname + '/dist',
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
 	devServer: {
 		contentBase: __dirname,
 		hot: true
 	}
-};
+});
