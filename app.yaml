@@ -1,4 +1,3 @@
 runtime: nodejs8
-env: flex
 env_variables:
   PORT: 8080
