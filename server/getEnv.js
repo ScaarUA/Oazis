@@ -11,7 +11,7 @@ if (dotEnvExists) {
 }
 
 const {Storage} = require('@google-cloud/storage');
-const storage = Storage({
+const storage = new Storage({
 	projectId: 'affable-audio-118621'
 });
 const bucketName = 'affable-audio-118621.appspot.com';
