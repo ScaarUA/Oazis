@@ -11,9 +11,7 @@ if (dotEnvExists) {
 }
 
 const {Storage} = require('@google-cloud/storage');
-const storage = new Storage({
-	projectId: 'affable-audio-118621'
-});
+const storage = new Storage();
 const bucketName = 'affable-audio-118621.appspot.com';
 
 console.log(`Downloading .env from bucket "${bucketName}"`);
