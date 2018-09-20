@@ -1,7 +1,14 @@
-const express = require('express');
 const path = require('path');
 const config = require('../config');
+console.log(config.dbAddress);
+const express = require('express');
+const mongoose = require('mongoose');
 
+mongoose.connect(config.dbAddress)
+	.then(() => {
+		console.log('Successfully connected to db');
+	})
+	.catch(error => console.log(error));
 const app = express();
 
 app.use(express.static(config.paths.frontEnd));
