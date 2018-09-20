@@ -21,7 +21,7 @@ console.log(`Downloading .env from bucket "${bucketName}"`);
 storage
 	.bucket(bucketName)
 	.file('.env')
-	.download({ destination: '.env' })
+	.download({ destination: path.resolve(config.paths.root, '.env') })
 	.then(() => {
 		console.info('getEnv.js: .env downloaded successfully')
 	})
