@@ -5,5 +5,6 @@
 service-account.json.enc
 service-account.json
 webpack.config.js
+setEnv.js
 src/
 node_modules/

@@ -5,7 +5,9 @@ before_install:
   -in service-account.json.enc -out service-account.json -d
 install:
 - npm install
-script: npm run build:fe
+script:
+- npm run set:env
+- npm run build:fe
 deploy:
   provider: gae
   keyfile: service-account.json
