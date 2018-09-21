@@ -19,9 +19,9 @@ console.log(`Downloading .env from bucket "${bucketName}"`);
 storage
 	.bucket(bucketName)
 	.file('.env')
-	.download({ destination: path.resolve(config.paths.root, '.env') })
-	.then(() => {
-		console.info('getEnv.js: .env downloaded successfully')
+	.get()
+	.then((data) => {
+		console.log(data[0]);
 	})
 	.catch(e => {
 		console.error(`getEnv.js: There was an error: ${JSON.stringify(e, undefined, 2)}`)
