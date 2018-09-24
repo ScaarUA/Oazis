@@ -6,7 +6,7 @@ const glob = require('glob');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = (env) => ({
+module.exports = (env = {}) => ({
 	mode: env.mode || 'development',
 	entry: {
 		bundle: './src/index.jsx'
@@ -80,7 +80,8 @@ module.exports = (env) => ({
 		alias: {
 			_features: path.resolve(__dirname, 'src/features/'),
 			_scenes: path.resolve(__dirname, 'src/scenes/'),
-			_components: path.resolve(__dirname, 'src/components/')
+			_components: path.resolve(__dirname, 'src/components/'),
+			_gates: path.resolve(__dirname, 'src/gates/'),
 		}
 	},
 	output: {
@@ -90,6 +91,12 @@ module.exports = (env) => ({
 	},
 	devServer: {
 		contentBase: __dirname,
-		hot: true
+		hot: true,
+		port: 8081,
+		proxy: [{
+			context: ['/auth', '/api'],
+			target: 'http://localhost:8080',
+		}],
+		historyApiFallback: true
 	}
 });

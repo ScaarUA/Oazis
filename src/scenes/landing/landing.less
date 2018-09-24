@@ -18,6 +18,18 @@
       padding: 0 5px;
     }
   }
+
+  .landing-header-user {
+    color: #ffffff;
+  }
+
+  .landing-header-user-signout {
+    background: none;
+    color: #ffffff;
+    text-decoration: underline;
+    outline: none;
+    border: none;
+  }
 }
 
 .landing-section {
@@ -49,6 +61,24 @@
     .with-limited-width();
 
     text-align: center;
+    animation: fadein 1s;
+  }
+
+  .landing-menu-button {
+    margin: 20px;
+    padding: 7px;
+    background: @secondary-color;
+    border: none;
+    border-radius: 4px;
+    color: @primary-dark-color;
+    font-size: 24px;
+    transition: background 0.5s;
+    animation: fadein 1s;
+
+    &:hover {
+      background: none;
+      color: @secondary-color;
+    }
   }
 }
 
