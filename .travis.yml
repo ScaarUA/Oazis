@@ -8,6 +8,7 @@ install:
 script:
 - npm run set:env
 - npm run build:fe
+before_deploy: npm install now --no-save
 deploy:
   provider: script
   script: now --token $NOW_TOKEN
