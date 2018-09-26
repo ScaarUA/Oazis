@@ -1,4 +1,6 @@
 {
+  "name": "oazis-food",
+  "alias": "oazis.food",
   "files": [
     "assets",
     "server",
