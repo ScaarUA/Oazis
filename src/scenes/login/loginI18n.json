@@ -4,13 +4,17 @@
     "title": "Вход для администраторов",
     "loginLabel": "Имя пользователя",
     "passwordLabel": "Пароль",
-    "submitLabel": "Войти"
+    "submitLabel": "Войти",
+    "alreadyLoggedIn": "Ви уже вошли",
+    "goBack": "Вернуться назад"
   },
   "ua": {
     "wrongLogin": "Неправильний логін чи пароль",
     "title": "Вхід для адміністраторів",
     "loginLabel": "Ім'я користувача",
     "passwordLabel": "Пароль",
-    "submitLabel": "Увійти"
+    "submitLabel": "Увійти",
+    "alreadyLoggedIn": "Ви вже увійшли",
+    "goBack": "Повернутися назад"
   }
 }

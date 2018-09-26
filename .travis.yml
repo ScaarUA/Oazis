@@ -9,8 +9,6 @@ script:
 - npm run set:env
 - npm run build:fe
 deploy:
-  provider: gae
-  keyfile: service-account.json
-  project: affable-audio-118621
-  default: true
+  provider: script
+  script: now --token $NOW_TOKEN
   skip_cleanup: true

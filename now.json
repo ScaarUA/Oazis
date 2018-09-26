@@ -1,0 +1,12 @@
+{
+  "files": [
+    "assets",
+    "server",
+    "dist",
+    "package.json",
+    "package.lock.json",
+    ".env",
+    "config.js",
+    "getEnv.js"
+  ]
+}

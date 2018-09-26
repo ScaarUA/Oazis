@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import './landing.less';
 import {Scroller} from './Scroller';
 import LangSelector from '_features/lang-selector';
@@ -9,10 +10,6 @@ import i18n from './landingI18n.json';
 import {logoutUser} from '_features/user/userActions';
 
 class Landing extends React.Component {
-	goToMenu = () => {
-		this.props.history.push('/menu');
-	};
-
 	render() {
 		const {translations, user, logoutUser} = this.props;
 
@@ -38,9 +35,9 @@ class Landing extends React.Component {
 				<h1 className="primary-block-title">{translations.primaryTitle}</h1>
 				<p className="address-info">{translations.primaryAddress}</p>
 				<p className="main-description">{translations.primaryDescription}</p>
-				{user && <button className="landing-menu-button" onClick={this.goToMenu}>
+				{user && <Link to="/menu" className="landing-menu-button">
 					{translations.openMenu}
-					</button>}
+					</Link>}
 			</section>
 			<section className="landing-section landing-secondary-block">
 				<div className="landing-secondary-wrapper">

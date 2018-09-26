@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import './login.less';
 import {loginUser} from '_features/user/userActions';
 import i18n from './loginI18n.json';
@@ -50,6 +51,12 @@ class Login extends React.Component {
 	render() {
 		const {translations} = this.props;
 		const {user, error} = this.state;
+
+		if (this.props.user) {
+			return <h2>
+				{translations.alreadyLoggedIn}. <Link to="/">{translations.goBack}</Link>
+			</h2>
+		}
 
 		return (
 			<div className="login">
