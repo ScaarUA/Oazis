@@ -7,6 +7,7 @@ const session = require('cookie-session');
 const bodyParser = require('body-parser');
 const apiRouter = require('./api');
 const authRouter = require('./auth');
+const getSSRContent = require('../fe-server');
 
 mongoose.connect(config.dbAddress)
 	.then(() => {
@@ -15,6 +16,8 @@ mongoose.connect(config.dbAddress)
 	.catch(error => console.log(error));
 const app = express();
 
+app.set('views', path.resolve(__dirname, 'views'));
+app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -28,7 +31,11 @@ app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 
 app.get('*', function(req, res) {
-	res.sendFile(path.resolve(config.paths.frontEnd, 'index.html'));
+	res.render('index', {
+		content: getSSRContent({
+			location: req.url
+		})
+	});
 });
 
 app.listen(config.serverPort, () => console.log(`App is listening on port ${config.serverPort}`));

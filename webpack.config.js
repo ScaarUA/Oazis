@@ -5,9 +5,14 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const glob = require('glob');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+require('./getEnv');
 
-module.exports = (env = {}) => ({
-	mode: env.mode || 'development',
+function NullPlugin() {
+	this.apply = function(){};
+}
+
+module.exports = {
+	mode: process.env.NODE_ENV || 'development',
 	entry: {
 		bundle: './src/index.jsx'
 	},
@@ -56,7 +61,7 @@ module.exports = (env = {}) => ({
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
-		new HtmlWebpackPlugin({
+		process.env.NODE_ENV === 'production' ? new NullPlugin() : new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
 		new webpack.HotModuleReplacementPlugin(),
@@ -74,6 +79,12 @@ module.exports = (env = {}) => ({
 				})
 			]
 		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+				BROWSER: JSON.stringify(true)
+			}
+		})
 	],
 	resolve: {
 		extensions: ['*', '.js', '.jsx'],
@@ -99,4 +110,4 @@ module.exports = (env = {}) => ({
 		}],
 		historyApiFallback: true
 	}
-});
+};

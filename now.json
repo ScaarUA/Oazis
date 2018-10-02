@@ -5,6 +5,7 @@
     "assets",
     "server",
     "dist",
+    "fe-server",
     "package.json",
     "package.lock.json",
     ".env",

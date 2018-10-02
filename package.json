@@ -8,8 +8,9 @@
     "start": "npm run run:server",
     "dev:fe": "webpack-dev-server",
     "dev:server": "nodemon ./server/index.js",
-    "build:fe": "webpack --env.mode=production",
+    "build:fe": "webpack",
     "run:server": "node ./server/index.js",
+    "build:fe-server": "webpack --config webpack.server.config.js",
     "set:env": "node ./setEnv.js"
   },
   "babel": {
@@ -27,9 +28,11 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.16",
+    "pug": "^2.0.3",
     "yargs": "^12.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -47,6 +50,7 @@
     "nodemon": "^1.18.4",
     "normalize-css": "^2.3.1",
     "prop-types": "^15.6.2",
+    "raw-loader": "^0.5.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",

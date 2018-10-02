@@ -1,5 +1,6 @@
 .idea/
 dist/
+fe-server/
 node_modules/
 .env
 yarn-error.log

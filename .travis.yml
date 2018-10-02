@@ -5,6 +5,7 @@ install:
 script:
 - npm run set:env
 - npm run build:fe
+- npm run build:fe-server
 before_deploy:
 - npm install now --no-save
 deploy:

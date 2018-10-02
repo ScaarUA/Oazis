@@ -1,23 +1,11 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {createStore, applyMiddleware, compose} from 'redux';
-import {Provider} from 'react-redux';
-import App from './App';
-import rootReducer from './rootReducer';
-import thunk from 'redux-thunk';
+import {render, hydrate} from 'react-dom';
+import Root from './Root';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-	rootReducer,
-	composeEnhancers(
-		applyMiddleware(thunk)
-	)
-);
+const renderer = process.env.NODE_ENV === 'production' ? hydrate : render;
 
-render(
-	<Provider store={store}>
-			<App />
-	</Provider>,
+renderer(
+	<Root />,
 	document.getElementById('app-root')
 );
 
