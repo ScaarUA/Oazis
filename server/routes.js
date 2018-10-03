@@ -31,4 +31,16 @@ module.exports = app => {
 			pageInfo: menuTranslations[req.language]
 		});
 	});
+
+	app.get('/login', (req, res) => {
+		res.render('index', {
+			content: getSSRContent({
+				location: '/menu',
+				preloadedState: {
+					language: req.language
+				}
+			}),
+			pageInfo: {}
+		});
+	});
 };
