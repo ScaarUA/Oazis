@@ -3,8 +3,8 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 require('./getEnv');
 
-module.exports = (env = {}) => ({
-	mode: env.mode || 'development',
+module.exports = {
+	mode: process.env.NODE_ENV || 'development',
 	target: 'node',
 	entry: './src/server.jsx',
 	module: {
@@ -54,4 +54,4 @@ module.exports = (env = {}) => ({
 		__filename: 'mock',
 		__dirname: 'mock'
 	}
-});
+};

@@ -11,8 +11,5 @@
     ".env",
     "config.js",
     "getEnv.js"
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
