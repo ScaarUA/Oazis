@@ -34,10 +34,6 @@ class App extends React.Component {
 	}
 }
 
-App.defaultProps = {
-	options: {}
-};
-
 const mapDispatchToProps = {
 	restoreUser
 };

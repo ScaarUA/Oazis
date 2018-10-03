@@ -6,6 +6,7 @@ module.exports = {
 	paths: {
 		root,
 		frontEnd: path.resolve(root, 'dist'),
+		server: path.resolve(root, 'server'),
 		assets: path.resolve(root, 'assets')
 	},
 	serverPort: argv.port || process.env.PORT || 8080,

@@ -5,16 +5,24 @@ import App from './App';
 import rootReducer from './rootReducer';
 import thunk from 'redux-thunk';
 
-const composeEnhancers = process.env.BROWSER && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-	rootReducer,
-	composeEnhancers(
-		applyMiddleware(thunk)
-	)
-);
+const Root = ({options}) => {
+	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+	const store = createStore(
+		rootReducer,
+		options.preloadedState || {},
+		composeEnhancers(
+			applyMiddleware(thunk)
+		)
+	);
+	return (
+		<Provider store={store}>
+			<App options={options}/>
+		</Provider>
+	);
+};
 
-export default ({options}) => (
-	<Provider store={store}>
-		<App options={options} />
-	</Provider>
-);
+Root.defaultProps = {
+	options: {}
+};
+
+export default Root;
