@@ -48,7 +48,7 @@ class Landing extends React.Component {
 			</section>
 			<footer className="landing-footer">
 				<AddressMap
-					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmTLYUSg_4vkyjrKsCoWCkpXoiJmvj6cQ&callback=initMap"
+					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-M0f5BGwbRlOjFFv5tGY9foFupUoH14Y&callback=initMap"
 					loadingElement={<div style={{ height: '100%' }} />}
 					containerElement={<div style={{ height: '100%' }} />}
 					mapElement={<div style={{ height: '100%' }} />}
