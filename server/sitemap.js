@@ -4,6 +4,10 @@ module.exports = app => {
 	const map = sitemap({
 		http: 'https',
 		url: 'oazis-food.com',
+		map: {
+			'/?language=ua': ['get'],
+			'/menu?language=ua': ['get'],
+		},
 		route: {
 			'/login': {
 				disallow: true
