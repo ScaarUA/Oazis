@@ -1,0 +1,32 @@
+@import "colors.less";
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  background: @danger-color;
+  width: 40px;
+  height: 20px;
+  box-shadow: 0 0 2px @text-color;
+  border-radius: 10px;
+  cursor: pointer;
+
+  .checkbox-circle {
+    position: absolute;
+    top: 1px;
+    transform: translateX(1px);
+    display: block;
+    background: @secondary-color;
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+  }
+}
+
+.checkbox-checked {
+  background: @primary-color;
+
+  .checkbox-circle {
+    transform: translateX(21px);
+  }
+}

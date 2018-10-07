@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import './login.less';
 import {loginUser} from '_features/user/userActions';
 import i18n from './loginI18n.json';
+import Header from '_features/header';
+import BackLink from '_components/back-link/index';
 
 class Login extends React.Component {
 	state = {
@@ -59,21 +61,37 @@ class Login extends React.Component {
 		}
 
 		return (
+			<>
 			<div className="login">
+				<Header className="login-header" />
+				<BackLink to="/">Повернутися на головну</BackLink>
 				<h1>{translations.title}</h1>
 				<div className="login-block">
 					{error && <p className="login-error">{error}</p>}
 					<label className="login-form-field">
 						<p>{translations.loginLabel}</p>
-						<input type="text" name="username" value={user.name} onChange={this.onNameChange} />
+						<input
+							type="text"
+							name="username"
+							value={user.name}
+							onChange={this.onNameChange}
+							className="app-input-field"
+						/>
 					</label>
 					<label className="login-form-field">
 						<p>{translations.passwordLabel}</p>
-						<input type="password" name="password" value={user.password} onChange={this.onPasswordChange} />
+						<input
+							type="password"
+							name="password"
+							value={user.password}
+							onChange={this.onPasswordChange}
+							className="app-input-field"
+						/>
 					</label>
-					<button onClick={this.login}>{translations.submitLabel}</button>
+					<button className="login-submit" onClick={this.login}>{translations.submitLabel}</button>
 				</div>
 			</div>
+			</>
 		);
 	}
 }

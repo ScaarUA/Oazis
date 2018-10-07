@@ -1,0 +1,20 @@
+{
+  "ru": {
+    "menu": "Меню",
+    "dishName": "Название",
+    "dishAmount": "Количество",
+    "dishPrice": "Цена",
+    "addCategory": "Добавить категорию",
+    "addDish": "Добавить блюдо",
+    "showMenu": "Показывать меню"
+  },
+  "ua": {
+    "menu": "Меню",
+    "dishName": "Назва",
+    "dishAmount": "Кількість",
+    "dishPrice": "Ціна",
+    "addCategory": "Додати категорію",
+    "addDish": "Додати страву",
+    "showMenu": "Показувати меню"
+  }
+}

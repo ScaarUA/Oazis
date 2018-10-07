@@ -1,0 +1,65 @@
+@import "colors.less";
+
+.menu {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  padding: 20px 10px;
+}
+
+.menu-toggle {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.menu-table {
+  width: 100%;
+
+  td {
+    padding: 10px 0;
+  }
+  
+  .menu-table-save,
+  .menu-table-delete {
+    background: none;
+    outline: none;
+    border: none;
+  }
+
+  .menu-table-save {
+    color: @primary-dark-color;
+
+    &[disabled] {
+      color: lighten(@text-color, 90%);
+    }
+  }
+
+  .menu-table-delete {
+    color: @danger-color;
+  }
+
+  .menu-table-editing-row {
+    transition: background-color 0.5s;
+  }
+
+  .menu-table-editing-row-unsaved {
+    background-color: lighten(@primary-light-color, 12%);
+  }
+}
+
+.menu-category-name-cell {
+  font-size: 24px;
+
+  span {
+    background: @text-color;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 5px 20px;
+  }
+}
+
+.menu-dish-cell {
+  text-align: center;
+}

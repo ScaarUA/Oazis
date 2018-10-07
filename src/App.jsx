@@ -7,13 +7,15 @@ import Login from '_scenes/login';
 import './styles/common.less';
 import {restoreUser} from '_features/user/userActions';
 import ErrorPage from '_scenes/ErrorPage';
-import Menu from '_scenes/menu/index';
+import Menu from '_scenes/menu-page/';
+import {fetchAppSettings} from '_features/settings/settingsActions';
 
 const Router = process.env.BROWSER ? BrowserRouter : StaticRouter;
 
 class App extends React.Component {
 	componentDidMount() {
 		this.props.restoreUser();
+		this.props.fetchAppSettings();
 	}
 
 	render() {
@@ -35,7 +37,8 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = {
-	restoreUser
+	restoreUser,
+	fetchAppSettings
 };
 
 export default connect(null, mapDispatchToProps)(App);
