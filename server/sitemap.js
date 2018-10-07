@@ -5,7 +5,7 @@ module.exports = app => {
 		http: 'https',
 		url: 'oazis-food.com',
 		map: {
-			'/?language=ua': ['get'],
+			'?language=ua': ['get'],
 			'/menu?language=ua': ['get'],
 		},
 		route: {
