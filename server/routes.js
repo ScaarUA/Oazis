@@ -35,7 +35,7 @@ module.exports = app => {
 	app.get('/login', (req, res) => {
 		res.render('index', {
 			content: getSSRContent({
-				location: '/menu',
+				location: '/login',
 				preloadedState: {
 					language: req.language
 				}
