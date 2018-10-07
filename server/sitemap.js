@@ -9,6 +9,28 @@ module.exports = app => {
 			'/menu?language=ua': ['get'],
 		},
 		route: {
+			'/': {
+				alternatepages: [{
+					rel: 'alternate',
+					hreflang: 'uk-ua',
+					href: 'https://oazis-food.com/?language=ua'
+				}, {
+					rel: 'alternate',
+					hreflang: 'ru-ru',
+					href: 'https://oazis-food.com/?language=ru'
+				}]
+			},
+			'/menu': {
+				alternatepages: [{
+					rel: 'alternate',
+					hreflang: 'uk-ua',
+					href: 'https://oazis-food.com/menu?language=ua'
+				}, {
+					rel: 'alternate',
+					hreflang: 'ru-ru',
+					href: 'https://oazis-food.com/menu?language=ru'
+				}]
+			},
 			'/login': {
 				disallow: true
 			}
