@@ -11,16 +11,16 @@ export const changeLanguage = language => {
 	};
 };
 
-export const restoreLanguage = () => {
+export const restoreLanguage = () => dispatch => {
 	const queryLanguage = window.location.search.replace(/.*language=(\w+).*/, '$1');
 	const language = window.localStorage.getItem('LANGUAGE');
 
 	if (queryLanguage || language) {
-		return {
+		dispatch({
 			type: LANGUAGE_RESTORE,
 			payload: {
 				language: queryLanguage || language
 			}
-		}
+		})
 	}
 };
