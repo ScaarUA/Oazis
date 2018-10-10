@@ -1,4 +1,4 @@
-import {LANGUAGE_CHANGE} from './langSelectorConstants';
+import {LANGUAGE_CHANGE, LANGUAGE_RESTORE} from './langSelectorConstants';
 
 export const changeLanguage = language => {
 	window.localStorage.setItem('LANGUAGE', language);
@@ -9,4 +9,18 @@ export const changeLanguage = language => {
 			language
 		}
 	};
+};
+
+export const restoreLanguage = () => {
+	const queryLanguage = window.location.search.replace(/.*language=(\w+).*/, '$1');
+	const language = window.localStorage.getItem('LANGUAGE');
+
+	if (queryLanguage || language) {
+		return {
+			type: LANGUAGE_RESTORE,
+			payload: {
+				language: queryLanguage || language
+			}
+		}
+	}
 };

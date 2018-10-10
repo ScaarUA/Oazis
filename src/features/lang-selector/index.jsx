@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Dropdown from '_components/dropdown';
 import './lang-selector.less';
 import {langOptions} from './langSelectorConstants';
-import {changeLanguage} from './langSelectorActions';
+import {changeLanguage, restoreLanguage} from './langSelectorActions';
 
 const getSelectedLangOption = (langValue) => langOptions.find(langOption => langOption.value === langValue);
 
@@ -11,6 +11,10 @@ export class LangSelector extends React.Component {
 	state = {
 		dropdownShown: false
 	};
+
+	componentDidMount() {
+		this.props.restoreLanguage();
+	}
 
 	selectLanguage = (lang) => {
 		this.props.changeLanguage(lang);
@@ -51,7 +55,8 @@ const mapStateToProps = ({language}) => ({
 	language
 });
 const mapDispatchToProps = {
-	changeLanguage
+	changeLanguage,
+	restoreLanguage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LangSelector);

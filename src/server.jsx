@@ -5,7 +5,8 @@ global.window = {
 	localStorage: {
 		setItem: mockFunc,
 		getItem: mockFunc
-	}
+	},
+	location: {}
 };
 global.document = {
 	documentElement: {},

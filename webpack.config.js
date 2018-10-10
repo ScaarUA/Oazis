@@ -5,6 +5,9 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const glob = require('glob');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 require('./getEnv');
 
 function NullPlugin() {
@@ -17,13 +20,21 @@ module.exports = {
 		bundle: './src/index.jsx'
 	},
 	optimization: {
+		minimizer: [
+			new UglifyJsPlugin({
+				cache: true,
+				parallel: true,
+				sourceMap: true // set to true if you want JS source maps
+			}),
+			new OptimizeCSSAssetsPlugin({})
+		],
 		splitChunks: {
 			cacheGroups: {
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					name: 'vendor',
 					chunks: 'all'
-				}
+				},
 			}
 		}
 	},
@@ -38,7 +49,7 @@ module.exports = {
 				test: /\.less$/,
 				exclude: /node_modules/,
 				use: [
-					'style-loader',
+					process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
@@ -84,6 +95,9 @@ module.exports = {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
 				BROWSER: JSON.stringify(true)
 			}
+		}),
+		new MiniCssExtractPlugin({
+			filename: '[name].css'
 		})
 	],
 	resolve: {
