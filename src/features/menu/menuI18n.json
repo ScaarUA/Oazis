@@ -2,6 +2,7 @@
   "ru": {
     "menu": "Меню",
     "dishName": "Название",
+    "dishDescription": "Описание (например, из чего состоит)",
     "dishAmount": "Количество",
     "dishPrice": "Цена",
     "addCategory": "Добавить категорию",
@@ -11,6 +12,7 @@
   "ua": {
     "menu": "Меню",
     "dishName": "Назва",
+    "dishDescription": "Опис (наприклад, з чого складається)",
     "dishAmount": "Кількість",
     "dishPrice": "Ціна",
     "addCategory": "Додати категорію",

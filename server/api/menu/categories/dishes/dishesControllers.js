@@ -21,6 +21,7 @@ function createDish(req, res) {
 	const newDish = {
 		_id,
 		name: req.body.name,
+		description: req.body.description,
 		amount: req.body.amount,
 		price: req.body.price,
 		category: req.params.categoryId

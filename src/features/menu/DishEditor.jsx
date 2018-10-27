@@ -3,6 +3,7 @@ import React from 'react';
 class DishEditor extends React.Component {
 	state = {
 		name: this.props.dish.name || '',
+		description: this.props.dish.description || '',
 		amount: this.props.dish.amount || '',
 		price: this.props.dish.price || '',
 	};
@@ -35,9 +36,10 @@ class DishEditor extends React.Component {
 	changeName = this.changeValue('name');
 	changeAmount = this.changeValue('amount');
 	changePrice = this.changeValue('price');
+	changeDescription = this.changeValue('description')
 
 	render() {
-		const {name, amount, price} = this.state;
+		const {name, description, amount, price} = this.state;
 		const {translations} = this.props;
 		const rowClassName = [
 			'menu-table-editing-row',
@@ -53,6 +55,14 @@ class DishEditor extends React.Component {
 						onChange={this.changeName}
 						placeholder={translations.dishName}
 						className="app-input-field"
+					/>
+					<br />
+					<input 
+						type="text"
+						value={description}
+						onChange={this.changeDescription}
+						placeholder={translations.dishDescription}
+						className="app-input-field menu-input-field"
 					/>
 				</td>
 				<td className="menu-dish-cell">

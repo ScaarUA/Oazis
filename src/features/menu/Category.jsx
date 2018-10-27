@@ -10,6 +10,7 @@ const Category = ({category, dishes}) => (
 		<Dish
 			key={dish._id}
 			name={dish.name}
+			description={dish.description}
 			amount={dish.amount}
 			price={dish.price}
 		/>
