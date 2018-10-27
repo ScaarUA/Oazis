@@ -28,7 +28,8 @@ class DishEditor extends React.Component {
 	isModified = () => (
 		this.props.dish.name !== this.state.name ||
 		this.props.dish.amount !== this.state.amount ||
-		this.props.dish.price !== this.state.price
+		this.props.dish.price !== this.state.price ||
+		this.props.dish.description !== this.state.description
 	);
 
 	isDishNew = () => !this.props.dish._id;

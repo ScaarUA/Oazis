@@ -62,7 +62,7 @@ class Menu extends React.Component {
 				<table className="menu-table">
 					<thead>
 					<tr>
-						<th>{translations.dishName}</th>
+						<th className="menu-table-dish-name-header">{translations.dishName}</th>
 						<th>{translations.dishAmount}</th>
 						<th>{translations.dishPrice}</th>
 					</tr>
